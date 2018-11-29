@@ -15,6 +15,15 @@ const publicPathUpload = isDev?'/':config.publicPath;
 module.exports = {
     devtool: 'eval-source-map',
     entry: {
+        vender: [
+            'babel-polyfill',
+            'classnames',
+            'react',
+            'react-dom',
+            'axios',
+            'react-router',
+            'react-router-dom'
+        ],
        send:path.resolve(__dirname,"./src/send/js/index.js"), 
        detail:__dirname + "/src/detail/js/index.js"
     },
@@ -73,12 +82,17 @@ module.exports = {
         new HtmlWebpackPlugin({
             template:__dirname + "/src/send/html/index.html",
             filename:__dirname + "/build/index.html",
-            chunks:['send']
+            chunks:['send','vender']
         }),
         new HtmlWebpackPlugin({
             template:__dirname + "/src/detail/html/detail.html",
             filename:__dirname + "/build/detail.html",
-            chunks:['detail']
+            chunks:['detail','vender']
+        }),
+        new webpack.optimize.CommonsChunkPlugin({
+          name: 'vender',
+          //filename:'[name].[chunkhash].js',
+          minChunks: Infinity
         }),
         new ExtractTextPlugin({
             filename:'css/[name].css'
