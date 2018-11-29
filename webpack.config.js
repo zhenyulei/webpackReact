@@ -5,15 +5,14 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const EssayWebpackUpload = require('essay-webpack-upload');
 const path = require('path');
+const UglifyJsPlugin=require('uglifyjs-webpack-plugin');
 const config = require('./package.json');
 const isUpload = process.env.NODE_ENV === 'upload';
 const isDev = process.env.NODE_ENV === 'dev';
 const isBuild = process.env.NODE_ENV === 'build';
 const publicPathUpload = isDev?'/':config.publicPath;
 
-
 module.exports = {
-    devtool: 'eval-source-map',
     entry: {
         vender: [
             'babel-polyfill',
@@ -100,10 +99,19 @@ module.exports = {
 
     ]
 
-
 }
 if(isUpload || isBuild){
     let plugins =[];
+    plugins.push(
+            new UglifyJsPlugin({
+                uglifyOptions: {
+                  output: {
+                    comments: false
+                  },
+                  compress: true
+                }
+            })
+    );
     if (isUpload) {
         plugins.push(
             new EssayWebpackUpload({
