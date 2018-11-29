@@ -2,7 +2,7 @@
 import React, {Component} from 'react'
 import { Link } from 'react-router-dom';
 import {getData} from '../api/index.js'
-import '../../css/send.scss'
+import '../../css/sendIndex.scss'
 
 class Greeter extends Component{
   constructor(props) {

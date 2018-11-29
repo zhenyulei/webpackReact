@@ -4,14 +4,17 @@ import {render} from 'react-dom';
 import Greeter from './components/greeter.jsx';
 import SendDetail from './components/sendDetail.jsx';
 
-import { BrowserRouter,Route } from 'react-router-dom';
+import { HashRouter,Route } from 'react-router-dom';
 
+// if(module.hot){
+// 	module.hot.accept();
+// }
 
 render(
-<BrowserRouter>
+<HashRouter>
     <div className="container">
         <Route path='/'  exact component={Greeter} />
         <Route path='/sendDetail' component={SendDetail} />
     </div>
-</BrowserRouter>, 
+</HashRouter>, 
 document.getElementById('root'));

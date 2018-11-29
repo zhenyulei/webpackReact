@@ -8,7 +8,7 @@
   "scripts": {
     "dev": " cross-env NODE_ENV=dev webpack-dev-server -d --open --progress",
     "sprite": "cross-env NODE_ENV=sprite webpack --progress",
-    "build":  "cross-env NODE_ENV=build webpack -p --progress",
+    "build": "cross-env NODE_ENV=build webpack -p --progress",
     "upload": "cross-env NODE_ENV=upload webpack -p --hide-modules --progress"
   },
   "author": "zhenyulei",

@@ -26,6 +26,9 @@ module.exports = {
     performance: {
       hints: false
     },
+    resolve:{
+        extensions: ['.js', '.jsx']
+    },
     module: {
         rules: [
             {
@@ -78,7 +81,7 @@ module.exports = {
             chunks:['detail']
         }),
         new ExtractTextPlugin({
-            filename:'css/style.css'
+            filename:'css/[name].css'
         })
 
     ]
