@@ -108,7 +108,11 @@ if(isUpload || isBuild){
                   output: {
                     comments: false
                   },
-                  compress: true
+                  compress: {
+                      warnings: false,
+                      drop_debugger: true,
+                      drop_console: true//压缩后，删除console的代码
+                  }
                 }
             })
     );
