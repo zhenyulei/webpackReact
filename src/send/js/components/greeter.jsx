@@ -24,7 +24,8 @@ class Greeter extends Component{
       <div>
        <h2>你好 你是谁 who are you得到</h2>
        <div className="box">我是个按钮</div>
-       <Link to="sendDetail">点击我进行跳转</Link>
+       <a href="./detail.html">多页面跳转</a><hr/>
+       <Link to="sendDetail">点击我进行路由跳转</Link>
       </div>
     );
   }

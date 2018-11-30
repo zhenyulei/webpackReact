@@ -94,7 +94,7 @@ module.exports = {
           minChunks: Infinity
         }),
         new ExtractTextPlugin({
-            filename:'css/[name].css'
+            filename:'css/[name].[chunkhash].css'
         })
 
     ]
